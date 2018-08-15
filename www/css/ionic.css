@@ -7652,9 +7652,12 @@ a.button {
   transition: none !important; }
 
 
+body {
+	overflow-x: none;
+}
 
 .button-order {
-	    position: absolute;
+	position: absolute;
     width: 100%;
     bottom: 0;
 }
