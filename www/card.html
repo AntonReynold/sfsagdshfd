@@ -40,14 +40,14 @@
 								$('#title_task').html(json['name']);
 								$('#street').html('<b>Улица:</b> '+json['street']);
 								$('#house').html('<b>Дом:</b> '+json['house']);
-								$('#cost').html('<b>Стоимость:</b>'+json['cost']);
-								$('#corp').html('<b>Корпус:</b>'+json['corp']);
-								$('#flat').html('<b>Квартира:</b>'+json['flat']);
-								$('#floor').html('<b>Этаж:</b>'+json['floor']);
-								$('#podzd').html('<b>Подъезд:</b>'+json['podzd']);
-								$('#fon_code').html('<b>Код домофона:</b>'+json['fon_code']);
-								$('#phone').html('<b>Телефон:</b>'+json['phone']);
-								$('#jobs').html('<b>Работы:</b><br/>'+json['jobs']);
+								$('#cost').html('<b>Стоимость:</b> '+json['cost']);
+								$('#corp').html('<b>Корпус:</b> '+json['corp']);
+								$('#flat').html('<b>Квартира:</b> '+json['flat']);
+								$('#floor').html('<b>Этаж:</b> '+json['floor']);
+								$('#podzd').html('<b>Подъезд:</b> '+json['podzd']);
+								$('#fon_code').html('<b>Код домофона:</b> '+json['fon_code']);
+								$('#phone').html('<b>Телефон:</b> '+json['phone']);
+								$('#jobs').html('<b>Работы:</b><br/> '+json['jobs']);
 
 								if(json['uid'] == localStorage.user_id){
 									$('#go_task').text('Заказ взят в исполнение');
@@ -74,7 +74,8 @@
 		        <h1 class="title" id="title_task"></h1>
 		        <a href="#" class="button button-clear" id="logout">Выход</a>
     		</div>
-    	<div class="tasks" style="overflow: scroll; height: 100vh;    margin-top: 85px; padding: 15px; font-size: 16px; line-height: 1.45em;">
+    	<div class="tasks" style="overflow: scroll; height: 100vh;    
+     padding-top: 65px !important; padding: 15px; font-size: 18px; line-height: 1.45em;">
     		
 			<div id="street"></div>
 			<div id="house"></div>

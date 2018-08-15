@@ -5665,7 +5665,7 @@ progress {
   margin: 0;
   padding: 0 12px;
   min-width: 52px;
-  min-height: 47px;
+  min-height: 64px;
   border-width: 1px;
   border-style: solid;
   border-radius: 2px;
@@ -5709,7 +5709,7 @@ progress {
     padding-left: 0.2em; }
   .button.button-block, .button.button-full {
     margin-top: 10px;
-    margin-bottom: 10px; }
+     }
   .button.button-light {
     border-color: #ddd;
     background-color: #fff;
@@ -7653,7 +7653,7 @@ a.button {
 
 
 body {
-	overflow-x: none;
+	overflow-x: none !important;
 }
 
 .button-order {

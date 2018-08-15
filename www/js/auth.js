@@ -77,6 +77,7 @@ $(document).ready(function(){
 					if(data == "success")
 					{
 						console.log('ok');
+						$('#hidden_info').css('display','block');
 						$("#go_task").html('Заказ взят в исполнение');
 					}
 					else if(data = "failed")
