@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+         <link rel="stylesheet" type="text/css" href="css/ionic.css">
+         <script type="text/javascript" src="js/jquery.js"></script>
+        <title>Blank App</title>
+		 <script type="text/javascript">
+	    var url = window.location.pathname;
+	    var filename = url.substring(url.lastIndexOf('/') + 1);
+	    if (localStorage.login == "true" && filename == 'login.html') {
+	        window.location.href = "index.html";
+	    } else if (localStorage.login == null) {
+	        window.location.href = "login.html";
+	    } else if (localStorage.login == "false" && filename != 'login.html') {
+	        window.location.href = "login.html";
+	    }
+    </script>
+
+        <script type="text/javascript">
+
+
+		document.addEventListener("deviceready", onDeviceReady, false);
+		function onDeviceReady() {
+
+			navigator.notification.confirm(
+			    'You are the winner!', // message
+			     onConfirm,            // callback to invoke with index of button pressed
+			    'Game Over',           // title
+			    ['Restart','Exit']     // buttonLabels
+			);
+			alert(navigator.notification);
+					  
+					}
+
+				function onConfirm(buttonIndex) {
+			    alert('You selected button ' + buttonIndex);
+			}
+
+
+		 $(document).ready(function()
+			 {
+
+				 var url="http://razverlz.beget.tech/web_app/json.php";
+				 $.getJSON(url,function(result){
+				 $.each(result, function(i, field){
+				 var name=field.name;
+				 var id=field.id;
+				 var street=field.street;
+				 var jobs=field.jobs;
+				 var cost=field.cost;
+				 var house=field.house;
+				 var uid=field.uid;
+				 var user_id = localStorage.user_id;
+
+
+				 if (uid == 0){
+				 	 $("#listview").append("<a class='item' href='card.html?id="+id+"'><span class='item-note'>"+cost+" руб.</span><h2>"+ name + " </h2><p>ул. "+ street +", д. "+ house +"</p></a>");
+				 }
+				 else if(uid == user_id) {
+				 	 $("#listview").append("<a class='item' href='card.html?id="+id+"'><span class='item-note'>"+cost+" руб.</span><h2>"+ name + " </h2><p><font color='red'>В работе</font></p></a>");
+		
+				 }
+
+				 });
+			 });
+		 });
+		 </script>
+    </head>
+    <body>
+		
+		
+    
+<div class="bar bar-header">
+    		<a href="index.html" class="button button-clear" id="refresh">Обновить</a>
+		        <h1 class="title">Заказы</h1>
+		    <a href="#" class="button button-clear" id="logout">Выход</a>    
+    		</div>
+    	<div class="tasks" style="overflow: scroll; height: 100vh;    margin-top: 45px;">
+    		
+			<div id="listview"></div>
+    	</div>
+        <script type="text/javascript" src="cordova.js"></script>
+       
+        <script src="js/auth.js"></script>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>App</name>
+    <description>
+        A blank PhoneGap app.
+    </description>
+    <author email="support@phonegap.com" href="http://phonegap.com">
+        PhoneGap Team
+    </author>
+    <plugin name="cordova-plugin-whitelist" spec="1.1.0" />
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <plugin name="cordova-plugin-dialogs" spec="~2.0.1" />
+    <plugin name="onesignal-cordova-plugin" spec="~2.4.2" />
+</widget>
