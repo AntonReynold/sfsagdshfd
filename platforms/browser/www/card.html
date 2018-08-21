@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+         <link rel="stylesheet" type="text/css" href="css/ionic.css">
+         <script type="text/javascript" src="js/jquery.js"></script>
+        <title>Blank App</title>
+		 <script type="text/javascript">
+	    var url = window.location.pathname;
+	    var filename = url.substring(url.lastIndexOf('/') + 1);
+	    if (localStorage.login == "true" && filename == 'login.html') {
+	        window.location.href = "index.html";
+	    } else if (localStorage.login == null) {
+	        window.location.href = "login.html";
+	    } else if (localStorage.login == "false" && filename != 'login.html') {
+	        window.location.href = "login.html";
+	    }
+    </script>
+
+        <script type="text/javascript">
+
+		 $(document).ready(function()
+			 {
+			 	var id_task = location.search.split("?id=")[1]; 
+				var url="http://razverlz.beget.tech/web_app/auth.php?callback=?";
+				var dataString="id_task="+id_task+"&get_task_info=";
+
+						$.ajax({
+							type: "POST",
+							url: url,
+							data: dataString,
+							crossDomain: true,
+							cache: false,
+							beforeSend: function(){},
+							success: function(data){
+								var json = JSON.parse(data);
+
+								$('#id_t').val(id_task);
+								$('#title_task').html(json['name']);
+								$('#street').html('<b>Улица:</b> '+json['street']);
+								$('#house').html('<b>Дом:</b> '+json['house']);
+								$('#cost').html('<b>Стоимость:</b> '+json['cost']);
+								$('#corp').html('<b>Корпус:</b> '+json['corp']);
+								$('#flat').html('<b>Квартира:</b> '+json['flat']);
+								$('#floor').html('<b>Этаж:</b> '+json['floor']);
+								$('#podzd').html('<b>Подъезд:</b> '+json['podzd']);
+								$('#fon_code').html('<b>Код домофона:</b> '+json['fon_code']);
+								$('#phone').html('<b>Телефон:</b> '+json['phone']);
+								$('#jobs').html('<b>Работы:</b><br/> '+json['jobs']);
+
+								if(json['uid'] == localStorage.user_id){
+									$('#go_task').text('Заказ взят в исполнение');
+									$('#hidden_info').css('display', 'block');
+								}
+								else {
+									$('#go_task').text('Взять заказ в работу');
+									$('#hidden_info').css('display', 'none');
+								}
+							}
+						});
+
+
+				 });
+			
+		 </script>
+    </head>
+    <body>
+		
+		
+    
+<div class="bar bar-header">
+    		<a href="index.html" class="button button-clear">Назад</a>
+		        <h1 class="title" id="title_task"></h1>
+		        <a href="#" class="button button-clear" id="logout">Выход</a>
+    		</div>
+    	<div class="tasks" style="overflow: scroll; height: 100vh;    
+     padding-top: 65px !important; padding: 15px; font-size: 18px; line-height: 1.45em;">
+    		
+			<div id="street"></div>
+			<div id="house"></div>
+			<div id="jobs"></div>
+			<div id="cost"></div>
+
+			<div id="hidden_info">
+				<div id="corp"></div>
+				<div id="podzd"></div>
+				<div id="fon_code"></div>
+				<div id="floor"></div>
+				<div id="flat"></div>
+				<div id="phone"></div>
+			</div>
+
+			
+    	</div>
+
+    	<div class="button-order">
+				<input type="hidden" value="" id="id_t">
+	 			<button class="button button-block button-positive" id="go_task"></button>
+			</div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+       
+        <script src="js/auth.js"></script>
+    </body>
+</html>
