@@ -73,6 +73,7 @@ function saveCost(id_t, u_id, cost) {
 					{
 						console.log('success');
 						alert('Заказ выполнен!');
+						$('#go_task').css('display','none');
 					}
 					
 				}
