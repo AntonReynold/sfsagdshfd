@@ -78,14 +78,14 @@
 				 }
 
 				 if (uid == 0){
-				 	 	$("#listview").append("<a class='item' href='card.html?id="+id+"'><span class='item-note'>"+cost+" руб.</span><h2>"+ name + " </h2><p>ул. "+ street +", д. "+ house +"</p></a>");
+				 	 	
 				 }
 				 else if(uid == user_id) {
 				 	if (ended == 0){
-				 		$("#listview").append("<a class='item' href='card.html?id="+id+"'><span class='item-note'>"+cost+" руб.</span><h2>"+ name + " </h2><p><font color='red'>В работе</font></p></a>");
+				 		
 				 	}
 				 	else {
-				 		
+				 		$("#listview").append("<a class='item'><span class='item-note'>"+cost+" руб.</span><h2>"+ name + " </h2><p><font color='green'>Завершен</font></p></a>");
 				 	}	 
 				 }
 
@@ -99,7 +99,7 @@
 		
     
 <div class="bar bar-header">
-    		<a href="index.html" class="button button-clear" id="refresh">Обновить</a>
+    		<a href="index.html" class="button button-clear">Назад</a>
 		        <h1 class="title">Заказы</h1>
 		    <a href="#" class="button button-clear" id="logout">Выход</a>    
     		</div>
@@ -108,10 +108,7 @@
 			<div id="listview"></div>
     	</div>
 
-    	<div class="bar bar-footer" style="text-align: center;">
-
-		    <a href="mytask.html" class="button button-clear" style="font-size: 20px; color: green;">Мои выполненные заказы</a>    
-    		</div>
+    	
         <script type="text/javascript" src="cordova.js"></script>
        
         <script src="js/auth.js"></script>

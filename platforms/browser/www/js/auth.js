@@ -56,6 +56,28 @@ $(document).ready(function(){
     });
 
 
+function saveCost(id_t, u_id, cost) {
+
+	var dataString="id_t="+id_t+"&u_id="+u_id+"&cost="+cost+"&save_cost=";
+
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: dataString,
+				crossDomain: true,
+				cache: false,
+				beforeSend: function(){ },
+				success: function(data){
+					//var json = JSON.parse(data);
+					if(data == "success")
+					{
+						console.log('success');
+						alert('Заказ выполнен!');
+					}
+					
+				}
+			});
+}
 
     $("#go_task").click(function(){
 
@@ -83,8 +105,18 @@ $(document).ready(function(){
 					else if(data = "ended")
 					{
 						console.log('ended');
-						alert('Вы завершили заказ!');
-						$("#go_task").html('Заказ выполнен');
+						function onPrompt(results) {
+						saveCost(id_t, u_id, results.input1)
+						//alert("You selected button numbe " + id_t + " and entered " + results.input1);
+						}
+						navigator.notification.prompt(
+						'Введите стоимость',  // message
+						onPrompt,                  // callback to invoke
+						'Завершение заказа',            // title
+						['Сохранить'],             // buttonLabels
+						''                 // defaultText
+						);
+						
 					}
 				}
 			});

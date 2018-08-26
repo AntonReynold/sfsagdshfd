@@ -42,6 +42,21 @@
 		 $(document).ready(function()
 			 {
 
+			 	var url1="http://razverlz.beget.tech/web_app/auth.php?callback=?";
+				var dataString1="u_id="+localStorage.user_id+"&change_online=";
+
+						$.ajax({
+							type: "POST",
+							url: url1,
+							data: dataString1,
+							crossDomain: true,
+							cache: false,
+							beforeSend: function(){},
+							success: function(data){
+								console.log('status1');
+							}
+						});
+
 				 var url="http://razverlz.beget.tech/web_app/json.php?id="+localStorage.user_id;
 				 $.getJSON(url,function(result){
 				 $.each(result, function(i, field){
@@ -70,7 +85,7 @@
 				 		$("#listview").append("<a class='item' href='card.html?id="+id+"'><span class='item-note'>"+cost+" руб.</span><h2>"+ name + " </h2><p><font color='red'>В работе</font></p></a>");
 				 	}
 				 	else {
-				 		$("#listview").append("<a class='item'><span class='item-note'>"+cost+" руб.</span><h2>"+ name + " </h2><p><font color='green'>Завершен</font></p></a>");
+				 		
 				 	}	 
 				 }
 
@@ -92,6 +107,11 @@
     		
 			<div id="listview"></div>
     	</div>
+
+    	<div class="bar bar-footer" style="text-align: center;">
+
+		    <a href="mytask.html" class="button button-clear" style="font-size: 20px; color: green;">Мои выполненные заказы</a>    
+    		</div>
         <script type="text/javascript" src="cordova.js"></script>
        
         <script src="js/auth.js"></script>

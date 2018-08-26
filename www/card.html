@@ -22,8 +22,23 @@
 
 		 $(document).ready(function()
 			 {
+
+			 	var url="http://razverlz.beget.tech/web_app/auth.php?callback=?";
+				var dataString1="u_id="+localStorage.user_id+"&change_online=";
+
+						$.ajax({
+							type: "POST",
+							url: url,
+							data: dataString1,
+							crossDomain: true,
+							cache: false,
+							beforeSend: function(){},
+							success: function(data){
+								console.log('status1');
+							}
+						});
+
 			 	var id_task = location.search.split("?id=")[1]; 
-				var url="http://razverlz.beget.tech/web_app/auth.php?callback=?";
 				var dataString="id_task="+id_task+"&get_task_info=";
 
 						$.ajax({
@@ -50,7 +65,7 @@
 								$('#jobs').html('<b>Работы:</b><br/> '+json['jobs']);
 
 								if(json['uid'] == localStorage.user_id){
-									$('#go_task').text('Заказ взят в исполнение');
+									$('#go_task').text('Завершить заказ');
 									$('#hidden_info').css('display', 'block');
 								}
 								else {
@@ -94,7 +109,7 @@
 			
     	</div>
 
-    	<div class="button-order">
+    	<div class="button-order bar-footer">
 				<input type="hidden" value="" id="id_t">
 	 			<button class="button button-block button-positive" id="go_task"></button>
 			</div>
