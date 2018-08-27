@@ -17,7 +17,7 @@ document.addEventListener('deviceready', function () {
 }, false);
 
 $(document).ready(function(){
-	var url="http://razverlz.beget.tech/web_app/auth.php?callback=?";
+	var url="http://set.ip-b.ru/auth.php?callback=?";
 
 
     //Login Function

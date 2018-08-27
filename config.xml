@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>App</name>
+    <name>Zakaz</name>
     <description>
-        A blank PhoneGap app.
+        Zakaz app.
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+        Zakaz app.
     </author>
     <plugin name="cordova-plugin-whitelist" spec="1.1.0" />
     <content src="index.html" />

@@ -42,7 +42,7 @@
 		 $(document).ready(function()
 			 {
 
-			 	var url1="http://razverlz.beget.tech/web_app/auth.php?callback=?";
+			 	var url1="http://set.ip-b.ru/auth.php?callback=?";
 				var dataString1="u_id="+localStorage.user_id+"&change_online=";
 
 						$.ajax({
@@ -57,7 +57,7 @@
 							}
 						});
 
-				 var url="http://razverlz.beget.tech/web_app/json.php?id="+localStorage.user_id;
+				 var url="http://set.ip-b.ru/json.php?id="+localStorage.user_id;
 				 $.getJSON(url,function(result){
 				 $.each(result, function(i, field){
 				 var name=field.name;
