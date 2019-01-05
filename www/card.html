@@ -50,7 +50,7 @@
 							beforeSend: function(){},
 							success: function(data){
 								var json = JSON.parse(data);
-								json['phone'] = '+79111233445';
+								
 								$('#id_t').val(id_task);
 								$('#title_task').html(json['name']);
 								$('#street').html('<b>Улица:</b> '+json['street']);
